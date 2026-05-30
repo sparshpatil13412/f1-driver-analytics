@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Plotly Cache
+.plotly/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Data Files (Optional)
+# Uncomment if dataset is large
+# data/*.csv
