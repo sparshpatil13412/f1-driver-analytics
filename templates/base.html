@@ -1,14 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <meta name="theme-color" content="#000000">
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}
+        Formula One Driver Archive
+        {% endblock %}
+    </title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Driver Analytics</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
+
 <body>
-    {% block content %}{% endblock %}
+
+<div id="loader">
+
+    <div class="loader-content">
+
+        <div class="timeline-container">
+
+            <div class="timeline-line"></div>
+
+            <img
+                id="f1-car"
+                src="{{ url_for('static', filename='images/f1-car.png') }}"
+                alt="F1 Car"
+            >
+
+            <div class="years">
+
+                <span data-pos="0">1950</span>
+                <span data-pos="14">1960</span>
+                <span data-pos="28">1970</span>
+                <span data-pos="42">1980</span>
+                <span data-pos="56">1990</span>
+                <span data-pos="70">2000</span>
+                <span data-pos="84">2010</span>
+                <span data-pos="100">2020+</span>
+
+            </div>
+
+        </div>
+
+        <div id="champion-name">
+            Juan Manuel Fangio
+        </div>
+
+        <div class="loader-title">
+            Traversing Formula One History...
+        </div>
+
+    </div>
+
+</div>
+
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script>
+
+const champions = [
+    "Juan Manuel Fangio",
+    "Jim Clark",
+    "Jackie Stewart",
+    "Niki Lauda",
+    "Ayrton Senna",
+    "Michael Schumacher",
+    "Fernando Alonso",
+    "Lewis Hamilton",
+    "Max Verstappen"
+];
+
+let loaded = false;
+
+window.addEventListener("load", () => {
+    loaded = true;
+});
+
+const car = document.getElementById("f1-car");
+const years = document.querySelectorAll(".years span");
+const champion = document.getElementById("champion-name");
+const loader = document.getElementById("loader");
+
+let cycle = 0;
+
+function animateHistory(){
+
+    let progress = 0;
+
+    const interval = setInterval(() => {
+
+        progress += 1.2;
+
+        car.style.left = `calc(${progress}% - 110px)`;
+
+        const index =
+            Math.min(
+                Math.floor(progress / 12),
+                champions.length - 1
+            );
+
+        champion.textContent =
+            champions[index];
+
+        years.forEach((y,i)=>{
+
+            if(progress > i*14){
+                y.classList.add("active");
+            }
+
+        });
+
+        if(progress >= 105){
+
+            clearInterval(interval);
+
+            if(loaded){
+
+                car.style.transition =
+                    "transform .8s ease";
+
+                car.style.transform =
+                    "translateX(400px)";
+
+                setTimeout(() => {
+
+                    loader.style.transition =
+                        "opacity .8s ease";
+
+                    loader.style.opacity = "0";
+
+                    setTimeout(()=>{
+                        loader.remove();
+                    },800);
+
+                },700);
+
+            }else{
+
+                years.forEach(y =>
+                    y.classList.remove("active")
+                );
+
+                animateHistory();
+            }
+        }
+
+    },40);
+}
+
+animateHistory();
+
+</script>
+
 </body>
 </html>

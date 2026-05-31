@@ -1,0 +1,461 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Titillium Web',sans-serif;
+    background:#0a0a0f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* PIT STOP LOADER */
+/* ========================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#0a0a0f;
+    z-index:9999;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:opacity .6s ease;
+}
+
+.loader-hidden{
+    opacity:0;
+    pointer-events:none;
+}
+
+.pitstop-loader{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.car{
+    width:120px;
+    height:24px;
+    background:#e10600;
+    border-radius:5px;
+    position:relative;
+}
+
+.car::before{
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:35px;
+
+    width:50px;
+    height:10px;
+
+    background:#e10600;
+}
+
+.wheel{
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    border:5px solid white;
+
+    animation:spin .5s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+#loader p{
+    margin-top:20px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#bbb;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.75),
+            rgba(0,0,0,.85)
+        );
+}
+
+.hero-content{
+    max-width:1200px;
+}
+
+.hero-kicker{
+    color:#e10600;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+}
+
+.hero-title{
+    font-size:clamp(4rem,10vw,8rem);
+
+    line-height:.9;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+}
+
+.hero-subtitle{
+    margin-top:25px;
+
+    color:#bdbdbd;
+
+    font-size:1.2rem;
+
+    max-width:850px;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ========================= */
+/* STATS */
+/* ========================= */
+
+.stats{
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+}
+
+.stat-card{
+    background:#15151e;
+
+    padding:25px;
+
+    border-top:4px solid #e10600;
+
+    transition:.25s;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-number{
+    font-size:2.5rem;
+
+    font-weight:900;
+}
+
+.stat-label{
+    color:#aaa;
+
+    margin-top:5px;
+}
+
+
+.search-box:focus{
+    outline:2px solid #e10600;
+}
+
+/* ========================= */
+/* BACKGROUND ACCENT */
+/* ========================= */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:#e10600;
+
+    z-index:1000;
+}
+
+.explore-btn{
+    display:inline-block;
+
+    margin-top:50px;
+
+    padding:16px 40px;
+
+    background:#e10600;
+
+    color:white;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    border-radius:6px;
+
+    transition:.25s;
+}
+
+.explore-btn:hover{
+    background:#ff1f1a;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 30px rgba(225,6,0,.35);
+}
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#0a0a0f;
+    z-index:9999;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.pit-lane{
+    width:800px;
+    max-width:90vw;
+    height:220px;
+    position:relative;
+}
+
+.car{
+    position:absolute;
+    left:-180px;
+    top:90px;
+
+    width:160px;
+    height:40px;
+
+    background:#e10600;
+    border-radius:8px;
+
+    transition:none;
+}
+
+.car::before{
+    content:"";
+    position:absolute;
+
+    top:-18px;
+    left:50px;
+
+    width:60px;
+    height:18px;
+
+    background:#e10600;
+}
+
+.wheel{
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+    background:#111;
+    border:4px solid #fff;
+}
+
+.front{
+    right:10px;
+    top:-5px;
+}
+
+.rear{
+    left:10px;
+    top:-5px;
+}
+
+.crew{
+    position:absolute;
+
+    width:22px;
+    height:40px;
+
+    background:#ffffff;
+
+    opacity:0;
+
+    transition:.3s;
+}
+
+.crew-fl{ left:350px; top:35px; }
+.crew-fr{ left:430px; top:35px; }
+
+.crew-rl{ left:350px; top:140px; }
+.crew-rr{ left:430px; top:140px; }
+
+/* ========================= */
+/* LOADER */
+/* ========================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+
+    background:#070707;
+
+    z-index:99999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.loader-content{
+    width:min(1100px,90%);
+    text-align:center;
+}
+
+.timeline-container{
+    position:relative;
+    height:220px;
+}
+
+.timeline-line{
+    position:absolute;
+
+    top:100px;
+
+    left:0;
+    right:0;
+
+    height:4px;
+
+    background:#333;
+}
+
+.timeline-line::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #e10600,
+        transparent
+    );
+
+    opacity:.4;
+}
+
+#f1-car{
+    position:absolute;
+
+    width:220px;
+
+    left:-220px;
+    top:10px;
+
+    filter:
+        drop-shadow(0 0 20px rgba(225,6,0,.4))
+        drop-shadow(0 0 40px rgba(225,6,0,.2));
+}
+
+.years{
+    position:absolute;
+
+    top:130px;
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+}
+
+.years span{
+    color:#555;
+    font-size:1rem;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.years span.active{
+    color:#e10600;
+    transform:scale(1.2);
+}
+
+#champion-name{
+    margin-top:20px;
+
+    color:white;
+
+    font-size:2rem;
+    font-weight:700;
+
+    min-height:50px;
+
+    transition:.4s;
+}
+
+.loader-title{
+    margin-top:10px;
+
+    color:#999;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+}
