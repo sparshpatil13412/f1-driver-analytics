@@ -1,6 +1,8 @@
-/* ========================= */
-/* RESET */
-/* ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -15,68 +17,72 @@ html{
 body{
     font-family:'Titillium Web',sans-serif;
     background:#0a0a0f;
-    color:white;
+    color:#ffffff;
     overflow-x:hidden;
 }
 
-/* ========================= */
-/* PIT STOP LOADER */
-/* ========================= */
+/* =========================
+   TOP RED ACCENT
+========================= */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:#e10600;
+
+    z-index:2000;
+}
+
+/* =========================
+   LOADER
+========================= */
 
 #loader{
     position:fixed;
     inset:0;
+
     background:#0a0a0f;
-    z-index:9999;
+
+    z-index:99999;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    transition:opacity .6s ease;
+    transition:opacity .5s ease;
 }
 
-.loader-hidden{
-    opacity:0;
-    pointer-events:none;
-}
+.spinner{
+    width:70px;
+    height:70px;
 
-.pitstop-loader{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.car{
-    width:120px;
-    height:24px;
-    background:#e10600;
-    border-radius:5px;
-    position:relative;
-}
-
-.car::before{
-    content:"";
-    position:absolute;
-    top:-10px;
-    left:35px;
-
-    width:50px;
-    height:10px;
-
-    background:#e10600;
-}
-
-.wheel{
-    width:34px;
-    height:34px;
+    border:5px solid rgba(255,255,255,.15);
+    border-top:5px solid #e10600;
 
     border-radius:50%;
 
-    border:5px solid white;
+    animation:spin .8s linear infinite;
+}
 
-    animation:spin .5s linear infinite;
+.loader-text{
+    margin-top:20px;
+
+    color:#999;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:.9rem;
 }
 
 @keyframes spin{
@@ -89,16 +95,138 @@ body{
     }
 }
 
-#loader p{
-    margin-top:20px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:#bbb;
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(10,10,15,.95);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #1f1f28;
 }
 
-/* ========================= */
-/* HERO */
-/* ========================= */
+.nav-container{
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:18px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+
+    text-decoration:none;
+
+    font-size:1.8rem;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#e10600;
+}
+
+.nav-links{
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    list-style:none;
+}
+
+.nav-links a{
+    color:#bdbdbd;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    position:relative;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#e10600;
+
+    transition:.25s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-btn{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    background:#e10600;
+
+    color:white;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+    font-size:.85rem;
+
+    letter-spacing:1px;
+
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    background:#ff1f1a;
+
+    box-shadow:
+    0 6px 20px rgba(225,6,0,.3);
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
@@ -109,25 +237,44 @@ body{
 
     text-align:center;
 
-    padding:60px 20px;
+    padding:80px 20px;
+
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
 
     background:
-        linear-gradient(
-            rgba(0,0,0,.75),
-            rgba(0,0,0,.85)
-        );
+    radial-gradient(
+        circle at center,
+        rgba(225,6,0,.12),
+        transparent 60%
+    );
+
+    pointer-events:none;
 }
 
 .hero-content{
     max-width:1200px;
+
+    position:relative;
+
+    z-index:2;
+
+    animation:fadeUp .8s ease;
 }
 
 .hero-kicker{
     color:#e10600;
 
-    letter-spacing:5px;
-
     text-transform:uppercase;
+
+    letter-spacing:5px;
 
     margin-bottom:20px;
 }
@@ -143,90 +290,27 @@ body{
 }
 
 .hero-subtitle{
-    margin-top:25px;
+    max-width:850px;
+
+    margin:25px auto 0;
 
     color:#bdbdbd;
 
     font-size:1.2rem;
 
-    max-width:850px;
-
-    margin-left:auto;
-    margin-right:auto;
+    line-height:1.6;
 }
 
-/* ========================= */
-/* STATS */
-/* ========================= */
-
-.stats{
-    margin-top:60px;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
-
-    gap:20px;
-}
-
-.stat-card{
-    background:#15151e;
-
-    padding:25px;
-
-    border-top:4px solid #e10600;
-
-    transition:.25s;
-}
-
-.stat-card:hover{
-    transform:translateY(-8px);
-}
-
-.stat-number{
-    font-size:2.5rem;
-
-    font-weight:900;
-}
-
-.stat-label{
-    color:#aaa;
-
-    margin-top:5px;
-}
-
-
-.search-box:focus{
-    outline:2px solid #e10600;
-}
-
-/* ========================= */
-/* BACKGROUND ACCENT */
-/* ========================= */
-
-body::before{
-    content:"";
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:4px;
-
-    background:#e10600;
-
-    z-index:1000;
-}
+/* =========================
+   BUTTON
+========================= */
 
 .explore-btn{
     display:inline-block;
 
     margin-top:50px;
 
-    padding:16px 40px;
+    padding:16px 42px;
 
     background:#e10600;
 
@@ -250,212 +334,140 @@ body::before{
 
     transform:translateY(-4px);
 
-    box-shadow:0 10px 30px rgba(225,6,0,.35);
+    box-shadow:
+    0 10px 30px rgba(225,6,0,.35);
 }
 
-#loader{
-    position:fixed;
-    inset:0;
-    background:#0a0a0f;
-    z-index:9999;
+/* =========================
+   STATS
+========================= */
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+.stats{
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
 }
 
-.pit-lane{
-    width:800px;
-    max-width:90vw;
-    height:220px;
-    position:relative;
+.stat-card{
+    background:#15151e;
+
+    border-top:4px solid #e10600;
+
+    padding:30px;
+
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-.car{
-    position:absolute;
-    left:-180px;
-    top:90px;
+.stat-card:hover{
+    transform:translateY(-8px);
 
-    width:160px;
-    height:40px;
-
-    background:#e10600;
-    border-radius:8px;
-
-    transition:none;
+    box-shadow:
+    0 10px 30px rgba(225,6,0,.15);
 }
 
-.car::before{
-    content:"";
-    position:absolute;
+.stat-number{
+    font-size:2.5rem;
 
-    top:-18px;
-    left:50px;
-
-    width:60px;
-    height:18px;
-
-    background:#e10600;
+    font-weight:900;
 }
 
-.wheel{
-    position:absolute;
-
-    width:30px;
-    height:30px;
-
-    border-radius:50%;
-    background:#111;
-    border:4px solid #fff;
-}
-
-.front{
-    right:10px;
-    top:-5px;
-}
-
-.rear{
-    left:10px;
-    top:-5px;
-}
-
-.crew{
-    position:absolute;
-
-    width:22px;
-    height:40px;
-
-    background:#ffffff;
-
-    opacity:0;
-
-    transition:.3s;
-}
-
-.crew-fl{ left:350px; top:35px; }
-.crew-fr{ left:430px; top:35px; }
-
-.crew-rl{ left:350px; top:140px; }
-.crew-rr{ left:430px; top:140px; }
-
-/* ========================= */
-/* LOADER */
-/* ========================= */
-
-#loader{
-    position:fixed;
-    inset:0;
-
-    background:#070707;
-
-    z-index:99999;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-}
-
-.loader-content{
-    width:min(1100px,90%);
-    text-align:center;
-}
-
-.timeline-container{
-    position:relative;
-    height:220px;
-}
-
-.timeline-line{
-    position:absolute;
-
-    top:100px;
-
-    left:0;
-    right:0;
-
-    height:4px;
-
-    background:#333;
-}
-
-.timeline-line::after{
-    content:"";
-
-    position:absolute;
-    left:0;
-    top:0;
-
-    width:100%;
-    height:100%;
-
-    background:linear-gradient(
-        90deg,
-        #e10600,
-        transparent
-    );
-
-    opacity:.4;
-}
-
-#f1-car{
-    position:absolute;
-
-    width:220px;
-
-    left:-220px;
-    top:10px;
-
-    filter:
-        drop-shadow(0 0 20px rgba(225,6,0,.4))
-        drop-shadow(0 0 40px rgba(225,6,0,.2));
-}
-
-.years{
-    position:absolute;
-
-    top:130px;
-
-    width:100%;
-
-    display:flex;
-    justify-content:space-between;
-}
-
-.years span{
-    color:#555;
-    font-size:1rem;
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.years span.active{
-    color:#e10600;
-    transform:scale(1.2);
-}
-
-#champion-name{
-    margin-top:20px;
-
-    color:white;
-
-    font-size:2rem;
-    font-weight:700;
-
-    min-height:50px;
-
-    transition:.4s;
-}
-
-.loader-title{
-    margin-top:10px;
-
+.stat-label{
     color:#999;
+
+    margin-top:5px;
 
     text-transform:uppercase;
 
-    letter-spacing:4px;
+    letter-spacing:1px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.search-box{
+    width:100%;
+
+    padding:14px 18px;
+
+    background:#15151e;
+
+    border:1px solid #252532;
+
+    color:white;
+
+    border-radius:6px;
+}
+
+.search-box:focus{
+    outline:none;
+
+    border-color:#e10600;
+
+    box-shadow:
+    0 0 0 3px rgba(225,6,0,.15);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .nav-container{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .logo{
+        font-size:1.4rem;
+    }
+
+    .hero-title{
+        font-size:3.5rem;
+    }
+
+    .hero-subtitle{
+        font-size:1rem;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .explore-btn{
+        width:100%;
+    }
+
 }
