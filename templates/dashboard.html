@@ -1,31 +1,118 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Dashboard
+Dashboard
 {% endblock %}
 
 {% block content %}
-    <nav class="navbar">
 
-    <div class="nav-container">
+<section class="page-header">
 
-        <a href="/" class="logo">
-            Formula One <span>Archive</span>
-        </a>
 
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/drivers">Drivers</a></li>
-            <li><a href="/teams">Teams</a></li>
-            <li><a href="/champions">Champions</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
+<h1>Formula One</h1>
 
-        <a href="/explore" class="nav-btn">
-            Explore
-        </a>
+<p>
+    Formula One is the highest class of international single-seater motorsport.
+    Since 1950, it has evolved into a global championship combining elite driving talent,
+    advanced engineering, and competition at the highest level.
+</p>
 
+
+</section>
+
+<div class="stats">
+
+<div class="dashboard-stats">
+    <div class="stat-card">
+        <div class="stat-number">1950</div>
+        <div class="stat-label">First Season</div>
     </div>
 
-</nav>
+    <div class="stat-card">
+        <div class="stat-number">76</div>
+        <div class="stat-label">Seasons</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number">34</div>
+        <div class="stat-label">World Champions</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number">1100+</div>
+        <div class="stat-label">Grand Prix</div>
+    </div>
+</div>
+
+
+</div>
+
+<section class="about-content">
+
+
+<div class="about-card">
+    <h2>🏁 What is Formula One?</h2>
+
+    <p>
+        Formula One is the pinnacle of motorsport, featuring the fastest circuit-racing
+        cars in the world. Teams design and build their own cars while drivers compete
+        across a season of Grands Prix for the World Championship.
+    </p>
+</div>
+
+<div class="about-card">
+    <h2>🏆 Championships</h2>
+
+    <p>
+        Every season features two major titles: the Drivers' Championship and the
+        Constructors' Championship. Points are awarded based on race results
+        throughout the season.
+    </p>
+</div>
+
+<div class="about-card">
+    <h2>🔧 Technology & Innovation</h2>
+
+    <p>
+        Formula One has pioneered innovations in aerodynamics, hybrid power units,
+        safety systems, and data analysis. Many technologies developed in F1 later
+        influence road cars and other industries.
+    </p>
+</div>
+
+<div class="about-card">
+    <h2>🌍 Global Competition</h2>
+
+    <p>
+        The championship travels across multiple continents, racing at iconic venues
+        such as Monaco, Silverstone, Monza, Suzuka, Spa-Francorchamps, and many more.
+    </p>
+</div>
+
+<div class="about-card">
+    <h2>🏁 Legendary Drivers</h2>
+
+    <p>
+        The sport has produced legendary champions including
+        <strong>Ayrton Senna</strong>,
+        <strong>Michael Schumacher</strong>,
+        <strong>Lewis Hamilton</strong>,
+        and
+        <strong>Max Verstappen</strong>,
+        each leaving a lasting impact on Formula One history.
+    </p>
+</div>
+
+<div class="about-card">
+    <h2>🏎️Legendary Teams</h2>
+
+    <p>
+        Constructors such as Ferrari, McLaren, Williams, Mercedes, Lotus,
+        and Red Bull Racing have shaped the sport through decades of innovation,
+        championship success, and iconic rivalries.
+    </p>
+</div>
+
+</section>
+
 {% endblock %}

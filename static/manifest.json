@@ -1,0 +1,23 @@
+{
+  "name": "Formula One Insights",
+  "short_name": "F1 Insights",
+  "description": "Explore Formula One drivers, teams, championships and racing history from 1950 to the present.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#e10600",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

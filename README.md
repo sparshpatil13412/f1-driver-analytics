@@ -70,13 +70,7 @@ in your browser.
 
 This project uses the Formula 1 World Championship Dataset available on Kaggle.
 
-Recommended files:
-
-- drivers.csv
-- races.csv
-- results.csv
-- driver_standings.csv
-- constructors.csv
+F1drivers_Dataset.csv
 
 ## Future Improvements
 

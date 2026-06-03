@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{ driver["Driver"] }} - Driver Detail{% endblock %}
+
+{% block content %}
+    <div class="driver-detail">
+        <h1>{{ driver["Driver"] }}</h1>
+        <p>Nationality: {{ driver["Nationality"] }}</p>
+    </div>
+{% endblock %}

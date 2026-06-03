@@ -15,6 +15,10 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
 </head>
 
 <body>
@@ -25,7 +29,29 @@
         Loading...
     </div>
 </div>
+<nav class="navbar">
 
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+            Formula One <span>Archive</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/drivers">Drivers</a></li>
+            <li><a href="/teams">Teams</a></li>
+            <li><a href="/champions">Champions</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+
+        <a href="/explore" class="nav-btn">
+            Explore
+        </a>
+
+    </div>
+
+</nav>
 <div>
     {% block content %}
     {% endblock %}
@@ -44,7 +70,7 @@ window.addEventListener("load", () => {
             loader.remove();
         }, 500);
 
-    }, 3000); // 3 seconds
+    }, 750); // 0.75 seconds
 
 });
 
