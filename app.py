@@ -1,8 +1,20 @@
 from flask import Flask, render_template
 import pandas as pd
+from ast import literal_eval
 
 app = Flask(__name__)
-df = pd.read_csv(r'E:\Sparsh Python Programming folder\f1-driver-analytics\data\F1Drivers_Dataset.csv')
+
+
+def parse_seasons(value):
+    if isinstance(value, list):
+        return value
+    return literal_eval(value)
+
+
+df = pd.read_csv(
+    r'E:\Sparsh Python Programming folder\f1-driver-analytics\data\F1Drivers_Dataset.csv',
+    converters={"Seasons": parse_seasons}
+)
 
 teams = [
     {
