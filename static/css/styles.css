@@ -171,7 +171,7 @@ body::before{
 }
 
 .nav-links a:hover{
-    color:white;
+    color:#e10600;
 }
 
 .nav-links a::after{
@@ -219,6 +219,7 @@ body::before{
 
 .nav-btn:hover{
     background:#ff1f1a;
+    transform:translateY(-3px);
 
     box-shadow:
     0 6px 20px rgba(225,6,0,.3);

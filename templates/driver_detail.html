@@ -4,7 +4,10 @@
 
 {% block content %}
     <div class="driver-detail">
-        <h1>{{ driver["Driver"] }}</h1>
-        <p>Nationality: {{ driver["Nationality"] }}</p>
+        <section class="page-header">
+            <h1>{{ driver["Driver"] }}</h1>
+            <p>Nationality: {{ driver["Nationality"] }}</p>
+            <p>Seasons: {{ driver["Seasons"] | join(", ") }}</p>
+        </section>
     </div>
 {% endblock %}
