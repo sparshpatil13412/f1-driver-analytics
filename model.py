@@ -50,6 +50,9 @@ plt.title("F1 Driver Clusters")
 
 plt.show()
 
-for cluster in sorted(df["Cluster"].unique()):
-    print(f"\nCluster {cluster}")
-    print(df[df["Cluster"] == cluster]["Driver"].tolist())
+result = pd.DataFrame({
+    "Driver": df["Driver"],
+    "Group": "Group " + (df["Cluster"] + 1).astype(str)
+    })
+
+result.to_csv("data/Driver_clusters.csv", index=False)
