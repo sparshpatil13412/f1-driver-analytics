@@ -12,14 +12,14 @@ def parse_seasons(value):
 
 
 df = pd.read_csv(
-    r'E:\Sparsh Python Programming folder\f1-driver-analytics\data\F1Drivers_Dataset.csv',
+    r'data\F1Drivers_Dataset.csv',
     converters={"Seasons": parse_seasons}
 )
 groups = pd.read_csv(
-    r'E:\Sparsh Python Programming folder\f1-driver-analytics\data\Driver_clusters.csv'
+    r'data\Driver_clusters.csv'
 )
 teams = pd.read_csv(
-    r'E:\Sparsh Python Programming folder\f1-driver-analytics\data\f1_teams_complete_full_names.csv'
+    r'data\f1_teams_complete_full_names.csv'
 )
 teams['constructor_championships'] = teams['constructor_championships'].fillna(0)
 teams["total_podiums"] = teams["total_podiums"].fillna(0)
@@ -39,7 +39,7 @@ teams["podium_rate"] = teams["podium_rate"].fillna(
     teams['podium_rate'].mean()
 )
 team_groups = pd.read_csv(
-    r'E:\Sparsh Python Programming folder\f1-driver-analytics\data\Team_clusters.csv')
+    r'data\Team_clusters.csv')
 
 @app.route('/')
 @app.route('/home')
