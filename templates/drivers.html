@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Drivers
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+
+    <h1>Drivers</h1>
+
+    <p>
+        Explore the rich history of Formula One drivers, from legendary champions to emerging talents.
+        Discover their achievements, statistics, and the stories that have defined their careers in the sport.
+    </p>
+
+    <p>
+        Use this section to compare drivers, analyze performance, and understand how each driver shaped F1 history.
+    </p>
+
+</section>
+
+<input
+    type="text"
+    id="teamSearch"
+    class="search-box"
+    placeholder="Search teams..."
+>
+
+<section class="drivers-list">
+
+    {% for driver in drivers %}
+
+    <a href="{{ url_for('driver_detail', driver_id=driver.name) }}" class="driver-link" data-team="{{ driver.name|lower }}>
+
+        <div class="driver-card">
+
+            <div class="driver-left">
+                <div>
+                    <div class="driver-name">{{ driver.name }}</div>
+                    <div class="driver-nationality">{{ driver.nationality }}</div>
+                </div>
+            </div>
+
+        </div>
+
+    </a>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

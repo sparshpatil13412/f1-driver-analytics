@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Teams
+{% endblock %}
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <h1>Teams</h1>
+
+    <p>
+        Explore the rich history of Formula One teams, from legendary constructors to modern powerhouses.
+        Discover championship-winning teams, iconic drivers, and engineering dominance across eras.
+    </p>
+
+    <p>
+        Use this section to compare teams, analyze performance, and understand how each constructor shaped F1 history.
+    </p>
+
+</section>
+
+<input
+    type="text"
+    id="teamSearch"
+    class="search-box"
+    placeholder="Search teams..."
+>
+
+
+<section class="team-list">
+
+    {% for team in teams %}
+
+    <a href="{{ url_for('team_detail', team_id=team.name) }}" class="team-link" data-team="{{ team.name|lower }}">
+
+        <div class="team-card">
+
+            <div class="team-left">
+
+                <div>
+                    <div class="team-name">{{ team.name }}</div>
+                </div>
+            </div>
+            <div class="team-stats">
+                <span><p>Championships</p><p>{{ team.championships }}</p></span>
+                <span><p>Podiums</p><p>{{ team.podiums }}</p></span>
+                <span><p>Points</p><p>{{ team.points }}</p></span>
+                <span><p>First Year</p><p>{{ team.first_year }}</p></span>
+                <span><p>Last Year</p><p>{{ team.last_year }}</p></span>
+            </div>
+
+        </div>
+
+    </a>
+
+    {% endfor %}
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}
+        Formula One Driver Archive
+        {% endblock %}
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+
+<body>
+
+<div id="loader">
+    <div class="spinner"></div>
+    <div class="loader-text">
+        Loading...
+    </div>
+</div>
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+            Formula One <span>Archive</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/drivers">Drivers</a></li>
+            <li><a href="/teams">Teams</a></li>
+            <li><a href="/champions">Champions</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+
+        <a href="/explore" class="nav-btn">
+            Explore
+        </a>
+
+    </div>
+
+</nav>
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

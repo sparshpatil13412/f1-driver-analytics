@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ driver["Driver"] }} - Driver Detail
+{% endblock %}
+
+{% block content %}
+
+<div class="driver-detail">
+
+    <div class="driver-detail-header">
+
+        <div class="driver-detail-left">
+
+            <div class="driver-detail-number">
+                {{ driver["Championships"] }}
+            </div>
+
+            <div>
+
+                <div class="driver-detail-name">
+                    {{ driver["Driver"] }}
+                </div>
+
+                <div class="driver-detail-nationality">
+                    {{ driver["Nationality"] }}
+                </div>
+
+                <div class="driver-detail-group">
+                    {{ group }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="driver-detail-stats">
+
+        <div class="driver-detail-stat">
+            <div class="driver-detail-stat-label">
+                Championships
+            </div>
+
+            <div class="driver-detail-stat-value">
+                {{ driver["Championships"] }}
+            </div>
+        </div>
+
+        <div class="driver-detail-stat">
+            <div class="driver-detail-stat-label">
+                Seasons
+            </div>
+
+            <div class="driver-detail-stat-value">
+                {{ driver["Seasons"] | length }}
+            </div>
+        </div>
+
+        <div class="driver-detail-stat">
+            <div class="driver-detail-stat-label">
+                Nationality
+            </div>
+
+            <div class="driver-detail-stat-value">
+                {{ driver["Nationality"] }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="driver-detail-seasons">
+
+        <h3>Career Seasons</h3>
+
+        <div class="season-tags">
+
+            {% for season in driver["Seasons"] %}
+                <div class="season-tag">
+                    {{ season }}
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

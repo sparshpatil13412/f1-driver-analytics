@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ team["name"] }} - Team Detail
+{% endblock %}
+
+{% block content %}
+
+<div class="team-detail">
+
+    <section class="team-hero">
+
+        <h1 class="team-name-large">
+            {{ team["name"] }}
+        </h1>
+
+        <p class="team-era">
+            {{ team["first_year"] }} -
+            {{ team["last_year"] }}
+        </p>
+
+        <span class="team-group">
+            {{ group }}
+        </span>
+
+    </section>
+
+    <section class="team-overview">
+
+        <div class="team-overview-card">
+            <div class="team-overview-label">
+                Championships
+            </div>
+
+            <div class="team-overview-value">
+                {{ team["constructor_championships"] }}
+            </div>
+        </div>
+
+        <div class="team-overview-card">
+            <div class="team-overview-label">
+                Total Points
+            </div>
+
+            <div class="team-overview-value">
+                {{ team["total_points"] }}
+            </div>
+        </div>
+
+        <div class="team-overview-card">
+            <div class="team-overview-label">
+                Total Podiums
+            </div>
+
+            <div class="team-overview-value">
+                {{ team["total_podiums"] }}
+            </div>
+        </div>
+
+    </section>
+
+    <section class="team-performance">
+
+        <h2>Performance Metrics</h2>
+
+        <div class="team-performance-grid">
+
+            <div class="performance-box">
+                <h3>Win Rate</h3>
+                <p>{{ team["win_rate"] }}</p>
+            </div>
+
+            <div class="performance-box">
+                <h3>Podium Rate</h3>
+                <p>{{ team["podium_rate"] }}</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="team-history">
+
+        <h2>Timeline</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-year">
+                {{ team["first_year"] }}
+            </div>
+
+            <div class="timeline-arrow">
+                →
+            </div>
+
+            <div class="timeline-year">
+                {{ team["last_year"] }}
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="team-facts">
+
+        <div class="fact-row">
+            <span class="fact-label">Team</span>
+            <span class="fact-value">{{ team["name"] }}</span>
+        </div>
+
+        <div class="fact-row">
+            <span class="fact-label">Constructor Titles</span>
+            <span class="fact-value">
+                {{ team["constructor_championships"] }}
+            </span>
+        </div>
+
+        <div class="fact-row">
+            <span class="fact-label">Podiums</span>
+            <span class="fact-value">
+                {{ team["total_podiums"] }}
+            </span>
+        </div>
+
+        <div class="fact-row">
+            <span class="fact-label">Points</span>
+            <span class="fact-value">
+                {{ team["total_points"] }}
+            </span>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
